@@ -12,6 +12,7 @@
 - **Simple user interface**: Command-line interface with easy-to-follow prompts.
 
 ## Usage
+
 ### Step 1: Generate Encryption Key
 The first time you run **ByteShield**, a secret key will be generated. This key is used for encryption and decryption of files.
 To generate the key, simply run the program and it will automatically create a **`secret.key`** file. This key file should be kept safe!
@@ -53,8 +54,10 @@ To exit the tool, simply select option **5** to safely shut down the application
 - **AES-based Encryption**: AES (Advanced Encryption Standard) is one of the most secure encryption algorithms available. **Fernet** is a specific implementation of AES for symmetric encryption (same key for encryption and decryption).
   
 ## Security Considerations
+
 - **Keep the key file safe**: The **`secret.key`** file is critical for decrypting your files. If you lose it, you will not be able to decrypt your files.
 - **Password Protection**: The encryption key should be stored securely and not shared carelessly.
 
 ## License
+
 This project is licensed under the **MIT License** 
