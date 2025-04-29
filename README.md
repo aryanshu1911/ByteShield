@@ -1,7 +1,3 @@
-Here's the updated `README.md` for **ByteShield**, now reflecting the latest features from the code you provided, including integrity checking and enhanced messaging:
-
----
-
 # ByteShield  
 🛡️ AES-Based Symmetric Data Encryption with Integrity Verification
 
