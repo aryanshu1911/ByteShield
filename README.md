@@ -1,63 +1,98 @@
-# ByteShield
- AES-based symmetric data encryption and decryption
+Here's the updated `README.md` for **ByteShield**, now reflecting the latest features from the code you provided, including integrity checking and enhanced messaging:
 
-**ByteShield** is a powerful file encryption and decryption utility that uses AES-based **Fernet** symmetric encryption. It allows you to easily protect and secure your files and folders by encrypting them with a strong key, ensuring that your sensitive data is safe from unauthorized access.
+---
 
-## Features
+# ByteShield  
+🛡️ AES-Based Symmetric Data Encryption with Integrity Verification
 
-- **AES-based encryption**: Uses the **Fernet** algorithm to securely encrypt and decrypt files.
-- **Encrypt individual files**: Protect specific files with a password (encryption key).
-- **Encrypt entire folders**: Batch-encrypt all files in a folder to protect them.
-- **Decrypt files/folders**: Easily decrypt files and folders that were previously encrypted.
-- **Simple user interface**: Command-line interface with easy-to-follow prompts.
+**ByteShield** is a robust file encryption and decryption tool powered by **Fernet** (AES-based symmetric encryption). In addition to encrypting files and folders, ByteShield now also tracks file integrity using SHA-256 hashes—ensuring your data is not only encrypted, but also verifiably unchanged.
 
-## Usage
+---
 
-### Step 1: Generate Encryption Key
-The first time you run **ByteShield**, a secret key will be generated. This key is used for encryption and decryption of files.
-To generate the key, simply run the program and it will automatically create a **`secret.key`** file. This key file should be kept safe!
+## 🔐 Features
+
+- **AES-based encryption**: Utilizes **Fernet**, an AES symmetric encryption method for strong security.
+- **File integrity verification**: Stores and verifies hashes to detect tampering during decryption.
+- **Encrypt individual files**: Lock down specific files securely.
+- **Encrypt entire folders**: Batch-process folders for mass encryption.
+- **Decrypt with verification**: Ensures decrypted files match their original hash.
+- **Command-line interface**: Intuitive prompts for smooth operation.
+
+---
+
+## 🚀 Getting Started
+
+### Step 1: Generate an Encryption Key
+The first time you run ByteShield, it automatically creates a `secret.key` file. This file is essential for encryption and decryption.
+
+```
+secret.key  ➜  DO NOT delete or lose this file!
+```
+
+---
 
 ### Step 2: Encrypt a File
-To encrypt a file:
 1. Run the script.
-2. Select option **1** to encrypt a file.
-3. Enter the full path of the file to encrypt.
-4. The file will be encrypted and saved.
+2. Choose **1** to encrypt a file.
+3. Enter the full file path.
+4. ByteShield encrypts the file and saves its original hash for future verification.
+
+---
 
 ### Step 3: Decrypt a File
-To decrypt a file:
 1. Run the script.
-2. Select option **2** to decrypt a file.
-3. Enter the full path of the file to decrypt.
-4. The file will be decrypted and restored.
+2. Choose **2** to decrypt a file.
+3. Enter the encrypted file’s full path.
+4. ByteShield decrypts the file and:
+   - Verifies its hash if available.
+   - Warns if the hash is missing or doesn't match.
+
+---
 
 ### Step 4: Encrypt All Files in a Folder
-To encrypt all files in a folder:
-1. Run the script.
-2. Select option **3** to encrypt all files in a folder.
-3. Provide the folder path where your files are located.
-4. All files in the folder (except the `secret.key`) will be encrypted.
+1. Choose **3** from the menu.
+2. Provide the folder path.
+3. All files in the folder (excluding `secret.key` and `integrity.json`) are encrypted and logged for integrity.
+
+---
 
 ### Step 5: Decrypt All Files in a Folder
-To decrypt all files in a folder:
-1. Run the script.
-2. Select option **4** to decrypt all files in a folder.
-3. Provide the folder path where the encrypted files are located.
-4. All encrypted files will be decrypted and restored.
+1. Choose **4** from the menu.
+2. Provide the folder path.
+3. ByteShield decrypts all files, checking their original hashes.
+
+---
 
 ### Step 6: Exit
-To exit the tool, simply select option **5** to safely shut down the application.
+Choose **5** to close the application safely.
 
-## Key Concepts
+---
 
-- **Encryption Key**: The key used to encrypt and decrypt files. It is important to keep the key safe, as losing it will prevent you from accessing your encrypted files.
-- **AES-based Encryption**: AES (Advanced Encryption Standard) is one of the most secure encryption algorithms available. **Fernet** is a specific implementation of AES for symmetric encryption (same key for encryption and decryption).
-  
-## Security Considerations
+## 🔒 File Integrity Protection
 
-- **Keep the key file safe**: The **`secret.key`** file is critical for decrypting your files. If you lose it, you will not be able to decrypt your files.
-- **Password Protection**: The encryption key should be stored securely and not shared carelessly.
+- A file's hash is saved before encryption in an `integrity.json` file.
+- Upon decryption, the file is rehashed and compared to its stored value.
+- If a mismatch is found or no hash is available, you’ll be prompted to confirm before continuing.
 
-## License
+---
 
-This project is licensed under the **MIT License** 
+## ⚠️ Security Notes
+
+- **Keep `secret.key` safe** — without it, decryption is impossible.
+- **Protect `integrity.json`** — tampering with it may result in integrity verification failures.
+- Avoid modifying files manually while encrypted or decrypted.
+
+---
+
+## 📂 Files Created by ByteShield
+
+| File             | Purpose                                     |
+|------------------|---------------------------------------------|
+| `secret.key`     | Holds the encryption/decryption key         |
+| `integrity.json` | Stores SHA-256 hashes of original file data |
+
+---
+
+## 🧑‍💻 License
+
+This project is licensed under the **MIT License**.  
