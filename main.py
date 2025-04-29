@@ -68,7 +68,6 @@ def main_menu():
   ╚════════════════════════════════════════════╝
     """)
 
-
     if not os.path.exists("secret.key"):
         print("🔑 No key found. Generating a new one...")
         generate_key()
