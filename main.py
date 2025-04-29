@@ -61,7 +61,7 @@ def decrypt_folder(folder_path, key):
 def main_menu():
     print(r"""
   ╔════════════════════════════════════════════════╗
-  ║           🔐 Cryptex File Vault v1.0           ║
+  ║        🔐 ByteShield File Vault v1.0          ║
   ║   AES-powered encryption & decryption utility  ║
   ╚════════════════════════════════════════════════╝
     """)
