@@ -106,7 +106,8 @@ def main_menu():
             else:
                 print("Invalid folder path.")
         elif choice == '5':
-            print("🛡️  Encryption tool shutting down. Stay secure!")
+            print("\n🛡️  Encryption tool shutting down. Stay secure!")
+            print()
             break
         else:
             print("Invalid input! Please enter a number between 1 and 5.")
