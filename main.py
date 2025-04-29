@@ -1,3 +1,5 @@
+# AES-Based Symmetric Data Encryption with Integrity Verification
+
 import os
 import json
 import hashlib
@@ -72,12 +74,12 @@ def decrypt_file(file_path, key):
         with open(file_path, 'wb') as decrypted_file:
             decrypted_file.write(decrypted)
 
-        # Now, check the integrity of the decrypted file
+        # Checking the integrity of the decrypted file
         current_hash = calculate_hash(file_path)
         hash_store = load_integrity_store()
         original_hash = hash_store.get(file_path)
 
-        # Check if hash is missing for this file
+        # Checking if hash is missing for this file
         if original_hash is None:
             print(f"⚠️ Integrity information missing for {file_path}.")
             user_input = input("Do you want to proceed with decryption anyway? (y/n): ").strip().lower()
@@ -85,7 +87,7 @@ def decrypt_file(file_path, key):
                 print(f"✓ Decrypted: {file_path} (Warning: Missing hash)")
             else:
                 print(f"✗ Decryption aborted for {file_path}.")
-                return  # Exit decryption if user opts not to proceed
+                return 
 
         # Check if the hash of the decrypted file matches the original hash
         elif original_hash != current_hash:
@@ -95,7 +97,7 @@ def decrypt_file(file_path, key):
                 print(f"✓ Decrypted: {file_path} (Warning: Hash mismatch)")
             else:
                 print(f"✗ Decryption aborted for {file_path}.")
-                return  # Exit decryption if user opts not to proceed
+                return 
 
         # If integrity check passes, notify the user
         else:
